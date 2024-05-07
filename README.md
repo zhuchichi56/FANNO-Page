@@ -1,48 +1,50 @@
-# Academic Project Page Template
-This is an academic paper project page template.
 
+# FANNO: Augmenting High-Quality Instruction Data with Open-Sourced LLMs Only
 
-Example project pages built using this template are:
-- https://vision.huji.ac.il/spectral_detuning/
-- https://vision.huji.ac.il/podd/
-- https://dreamix-video-editing.github.io
-- https://vision.huji.ac.il/conffusion/
-- https://vision.huji.ac.il/3d_ads/
-- https://vision.huji.ac.il/ssrl_ad/
-- https://vision.huji.ac.il/deepsim/
+## Description
 
+FANNO is a fully autonomous, open-sourced framework that revolutionizes the annotation process without the need for pre-existing annotated data. Utilizing a Mistral-7b-instruct model, FANNO efficiently produces diverse and high-quality datasets through a structured process involving document pre-screening, instruction generation, and response generation. Experiments on Open LLM Leaderboard and AlpacaEval benchmark show that FANNO can generate high-quality data with diversity and complexity for free, comparable to human-annotated or cleaned datasets like Alpaca-GPT4-Cleaned.
 
+## Authors
 
-## Start using the template
-To start using the template click on `Use this Template`.
+He Zhu†♣, Junyou Su†, Tianle Lun†, Yichen Tao†*, Wenjia Zhang♣, Zipei Fan†, Guanhua Chen†
 
-The template uses html for controlling the content and css for controlling the style. 
-To edit the websites contents edit the `index.html` file. It contains different HTML "building blocks", use whichever ones you need and comment out the rest.  
+†Southern University of Science and Technology, ♣Peking University  
+<small>*Indicates Equal Contribution</small>
 
-**IMPORTANT!** Make sure to replace the `favicon.ico` under `static/images/` with one of your own, otherwise your favicon is going to be a dreambooth image of me.
+## Links
 
-## Components
-- Teaser video
-- Images Carousel
-- Youtube embedding
-- Video Carousel
-- PDF Poster
-- Bibtex citation
+- [Paper](https://arxiv.org/pdf/ARXIV_PAPER_ID.pdf)
+- [Supplementary](static/pdfs/supplementary_material.pdf)
+- [Code](https://github.com/zhuchichi56/FANNO)
+- [arXiv](https://arxiv.org/abs/ARXIV_PAPER_ID)
 
-## Tips:
-- The `index.html` file contains comments instructing you what to replace, you should follow these comments.
-- The `meta` tags in the `index.html` file are used to provide metadata about your paper 
-(e.g. helping search engine index the website, showing a preview image when sharing the website, etc.)
-- The resolution of images and videos can usually be around 1920-2048, there rarely a need for better resolution that take longer to load. 
-- All the images and videos you use should be compressed to allow for fast loading of the website (and thus better indexing by search engines). For images, you can use [TinyPNG](https://tinypng.com), for videos you can need to find the tradeoff between size and quality.
-- When using large video files (larger than 10MB), it's better to use youtube for hosting the video as serving the video from the website can take time.
-- Using a tracker can help you analyze the traffic and see where users came from. [statcounter](https://statcounter.com) is a free, easy to use tracker that takes under 5 minutes to set up. 
-- This project page can also be made into a github pages website.
-- Replace the favicon to one of your choosing (the default one is of the Hebrew University). 
-- Suggestions, improvements and comments are welcome, simply open an issue or contact me. You can find my contact information at [https://pages.cs.huji.ac.il/eliahu-horwitz/](https://pages.cs.huji.ac.il/eliahu-horwitz/)
+## Abstract
 
-## Acknowledgments
-Parts of this project page were adopted from the [Nerfies](https://nerfies.github.io/) page.
+Instruction fine-tuning stands as a crucial advancement in leveraging large language models (LLMs) for enhanced task performance. However, the annotation of instruction datasets has traditionally been an expensive and laborious process, often reliant on manual annotations or costly API calls of proprietary LLMs. To address these challenges, we introduce FANNO, a fully autonomous, open-sourced framework that revolutionizes the annotation process without the need for pre-existing annotated data. Utilizing a Mistral-7b-instruct model, FANNO efficiently produces diverse and high-quality datasets through a structured process involving document pre-screening, instruction generation, response generation. Experiments on Open LLM Leaderboard and AlpacaEval benchmark show that the FANNO can generate high-quality data with diversity and complexity for free, comparable to human-annotated or cleaned datasets like Alpaca-GPT4-Cleaned.
 
-## Website License
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+## FANNO Framework
+![FANNO.png](static/images/fanno.png)
+
+Overview of FANNO framework. **(1) Document Pre-Screen**: We process the unlabeled text data with filters and community detection algorithm. **(2a) Seed Instruction Generation**: FANNO generates seed instructions from pre-screened documents with diverse task types and difficulty levels through a tag pool. **(2b) Instruction Augmentation**: New instructions are augmented conditioned on the documents and few-shot examples selected from the seed instructions with UCB algorithm. **(3) Response Generation**: The responses to instructions are generated directly by the teacher LLM, or based on the concatenation of the corresponding document and retrieved document.
+
+## Experiment Result
+![Table1.jpg](static/images/Table1.jpg)
+The comparative experiments of FANNO with other models demonstrate the superiority of our work.
+
+1. For diverse base models like LLaMA and Mistral, our framework consistently achieves top rankings in the LLM-open-leaderboard, even rivaling the models fine-tuned with Alpaca-GPT4-Cleaned, which underwent augmentation with proprietary models and manual selection.
+2. Compared to other similar automatic instruction annotation frameworks like Humpback, Muffin, WizardLM, we adhered to the principle of fairness as much as possible by fully utilizing the officially published datasets, and experiments proved that FANNO achieved excellent results with a smaller dataset.
+
+### AlpacaEval
+![AlpacaEval.jpg](static/images/AlpacaEval.svg)
+
+As shown in this Figure, our model marginally outperforms the Alpaca-GPT4-Cleaned’s fine-tuned variant on the AlpacaEval benchmark, attesting to the superiority of our Fanno framework.
+
+### Ablation Experiments
+
+![Table2.jpg](static/images/Table2.jpg)
+
+## BibTeX
+
+BibTex Code Here
+

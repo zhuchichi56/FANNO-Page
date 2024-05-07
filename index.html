@@ -105,7 +105,7 @@
 
                   <!-- Github link -->
                   <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
+                    <a href="https://github.com/zhuchichi56/FANNO" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
@@ -176,6 +176,10 @@
         <div class="content has-text-justified">
           <img src="static/images/fanno.png" alt="Description of image">
         </div>
+        <div class="content has-text-justified">
+          <p>
+            Overview of FANNO framework. <b>(1) Document Pre-Screen</b>: We process the unlabeled text data with filters and community detection algorithm. <b>(2a) Seed Instruction Generation</b>: FANNO generates seed instructions from pre-screened documents with diverse task types and difficulty levels through a tag pool. <b>(2b) Instruction Augmentation</b>: New instructions are augmented conditioned on the documents and few-shot examples selected from the seed instructions with UCB algorithm. <b>(3) Response Generation</b>: The responses to instructions are generated directly by the teacher LLM, or based on the concatenation of the corresponding document and retrieved document. 
+          </p>
       </div>
     </div>
   </div>
@@ -192,10 +196,27 @@
           <img src="static/images/Table1.jpg" alt="Description of image">
         </div>
         <div class="content has-text-justified">
+          <h6>
+            The comparative experiments of FANNO with other models demonstrate the superiority of our work. 
+          </h6>
+          <p>
+            (1) For diverse base models like LLaMA and Mistral, our framework consistently achieves top rankings in the LLM-open-leaderboard, even rivaling the models fine-tuned with Alpaca-GPT4-Cleaned, which underwent augmentation with proprietary models and manual selection.
+          </p>
+          <p>
+            (2) Compared to other similar automatic instruction annotation frameworks like Humpback,
+            Muffin, WizardLM, we adhered to the principle of fairness as much as possible by fully utilizing the officially published datasets, and experiments proved that FANNO achieved excellent results with a smaller dataset.
+          </p>
+        </div>
+        <div class="content has-text-justified">
           <h3 class="title is-8 ">AlpacaEval</h3>
         </div>
         <div class="content has-text-justified">
           <img src="static/images/AlpacaEval.svg" alt="Description of image">
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            As shown in this Figure, our model marginally outperforms the Alpaca-GPT4-Cleaned’s fine-tuned variant on the AlpacaEval benchmark, attesting to the superiority of our Fanno framework.
+          </p>
         </div>
         <div class="content has-text-justified">
           <h3 class="title is-8 ">Ablation Experiments</h3>
